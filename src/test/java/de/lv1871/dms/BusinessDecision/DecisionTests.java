@@ -28,7 +28,7 @@ public class DecisionTests extends DecisionTestBase {
 	// Das Spiel beginnt
 	@Test
 	@Deployment(resources = { "decision.dmn" })
-	public void testRFV() {
+	public void testFRV() {
 		String result = null;
 		assertEquals("FRV_OLD", result);
 	}
