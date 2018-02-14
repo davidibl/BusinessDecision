@@ -9,7 +9,7 @@ import springfox.documentation.service.ApiInfo;
 import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spring.web.plugins.Docket;
 
-public class Api {
+public class KlasseDecisionApi {
 
 	private static final String API_TITLE = "DMN API";
 	private static final String API_NAME = "dmn-api";
@@ -26,12 +26,12 @@ public class Api {
 				.useDefaultResponseMessages(false)
 				.apiInfo(apiInfo())
 				.select()
-				.paths(vertragsauskunftPath())
+				.paths(dokumentDecisionPath())
 				.build();
 		// @formatter:on
 	}
 
-	private static Predicate<String> vertragsauskunftPath() {
-		return regex("/api/dokumente.*");
+	private static Predicate<String> dokumentDecisionPath() {
+		return regex("/api/klasse.*");
 	}
 }

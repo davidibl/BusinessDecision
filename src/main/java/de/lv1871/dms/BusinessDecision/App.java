@@ -13,7 +13,8 @@ import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.context.annotation.Primary;
 import org.springframework.web.bind.annotation.CrossOrigin;
 
-import de.lv1871.dms.BusinessDecision.documentation.Api;
+import de.lv1871.dms.BusinessDecision.documentation.DokumentDecisionApi;
+import de.lv1871.dms.BusinessDecision.documentation.KlasseDecisionApi;
 import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
@@ -37,6 +38,11 @@ public class App {
 
 	@Bean
 	public Docket api() {
-		return Api.createApiInfo();
+		return DokumentDecisionApi.createApiInfo();
+	}
+
+	@Bean
+	public Docket api2() {
+		return KlasseDecisionApi.createApiInfo();
 	}
 }
