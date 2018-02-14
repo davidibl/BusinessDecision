@@ -1,0 +1,22 @@
+spring:
+  profiles:
+    active: development
+
+---
+
+spring:
+  profiles: development
+server:
+  port: 11608
+logging:
+  file: log.log
+  level:
+    org:
+      springframework:
+        web: INFO
+camunda:
+  bpm:
+    webapp:
+      index-redirect-enabled: false
+    rest:
+      enabled: false

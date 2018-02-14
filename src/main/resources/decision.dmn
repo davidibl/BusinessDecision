@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://www.omg.org/spec/DMN/20151101/dmn.xsd" xmlns:biodi="http://bpmn.io/schema/dmn/biodi/1.0" xmlns:camunda="http://camunda.org/schema/1.0/dmn" id="documentDecisionDefinitions" name="Dokument Decisiontables" namespace="http://camunda.org/schema/1.0/dmn">
+  <decision id="dokumentDecision" name="Dokument Matrix">
+    <extensionElements>
+      <biodi:bounds x="270" y="311" width="180" height="80" />
+    </extensionElements>
+    <decisionTable hitPolicy="FIRST">
+      <input id="InputClause_1k4hexe" label="Tarif" camunda:inputVariable="">
+        <inputExpression id="LiteralExpression_0dostv2" typeRef="string">
+          <text>tarif</text>
+        </inputExpression>
+        <inputValues id="UnaryTests_11joch3">
+          <text><![CDATA["COMMON","PROPOSAL","WLAKING_MAN"]]></text>
+        </inputValues>
+      </input>
+      <input id="InputClause_0hkwet0" label="Version" camunda:inputVariable="">
+        <inputExpression id="LiteralExpression_1c5f81w" typeRef="integer">
+          <text>version</text>
+        </inputExpression>
+      </input>
+      <output id="output_1" label="Dokument Typ" name="dokumentTyp" typeRef="string" />
+      <rule id="row-270313570-1">
+        <description></description>
+        <inputEntry id="UnaryTests_0nb9daf">
+          <text><![CDATA["FRV"]]></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_11oft5f">
+          <text>18</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1xmhi7g">
+          <text><![CDATA["FRV_A"]]></text>
+        </outputEntry>
+      </rule>
+      <rule id="row-270313570-2">
+        <inputEntry id="UnaryTests_0yjwdpy">
+          <text><![CDATA["SBU"]]></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0qpcuri">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0f1j0mx">
+          <text><![CDATA["SBU_STD"]]></text>
+        </outputEntry>
+      </rule>
+      <rule id="row-270313570-3">
+        <inputEntry id="UnaryTests_0dyxnyx">
+          <text><![CDATA["SBU"]]></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0t2fprl">
+          <text>20</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1708795">
+          <text><![CDATA["SBU_NEW"]]></text>
+        </outputEntry>
+      </rule>
+      <rule id="row-270313570-6">
+        <inputEntry id="UnaryTests_1xq2p1h">
+          <text><![CDATA["FRV"]]></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0kl787z">
+          <text>16</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1b436l1">
+          <text><![CDATA["FRV_OLD"]]></text>
+        </outputEntry>
+      </rule>
+      <rule id="table-3479095-1">
+        <inputEntry id="UnaryTests_0xtnpqi">
+          <text><![CDATA["FRV"]]></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1b4fvj7">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_15jw3ng">
+          <text><![CDATA["FRV"]]></text>
+        </outputEntry>
+      </rule>
+      <rule id="row-205065607-1">
+        <inputEntry id="UnaryTests_0f6u065">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0hvn3dl">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1twhfc2">
+          <text><![CDATA["STD"]]></text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+</definitions>
