@@ -9,30 +9,28 @@ import org.springframework.stereotype.Service;
 
 import de.lv1871.dms.BusinessDecision.domain.DmnDefintionKey;
 import de.lv1871.dms.BusinessDecision.domain.DokumentDecisionVariablesAccessor;
-import de.lv1871.dms.BusinessDecision.domain.Version;
+import de.lv1871.dms.BusinessDecision.domain.Klasse;
 
 @Service
-public class DokumentDecisionService {
+public class KlasseDecisionService {
 
 	@Autowired
 	private DecisionService decisionService;
 
-	public String getDokumenteByVersion(String tarif, Version version, Double beitrag, Double jahresbeitrag) {
+	public Klasse getKlasseByBeitrag(Double beitrag, Double jahresbeitrag) {
 
 		// @formatter:off
 		Map<String, Object> variables = DokumentDecisionVariablesAccessor
 			.create()
-			.withVersion(version)
-			.withTarif(tarif)
 			.withBeitrag(beitrag)
 			.withJahresbeitrag(jahresbeitrag)
 			.toMap();
-		// @formatter:on
-
+		// @formatter:off
+		
 		DmnDecisionTableResult decisionTableResult = decisionService
-				.evaluateDecisionTableByKey(DmnDefintionKey.DOKUMENT_DECISION.getKey(), variables);
+				.evaluateDecisionTableByKey(DmnDefintionKey.KLASSE_DECISION.getKey(), variables);
 
-		return decisionTableResult.getFirstResult().getFirstEntry();
+		return Klasse.valueOf(decisionTableResult.getFirstResult().getFirstEntry());
 	}
 
 }

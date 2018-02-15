@@ -2,7 +2,7 @@ package de.lv1871.dms.BusinessDecision.domain;
 
 public enum DmnDefintionKey {
 
-	DOKUMENT_DECISION("dokumentDecision");
+	KLASSE_DECISION("beitragKlasseDecision"), DOKUMENT_DECISION("dokumentDecision");
 
 	private final String key;
 

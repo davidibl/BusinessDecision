@@ -31,7 +31,7 @@
           <text>tarif</text>
         </inputExpression>
         <inputValues id="UnaryTests_11joch3">
-          <text><![CDATA["COMMON","PROPOSAL","WLAKING_MAN"]]></text>
+          <text><![CDATA["SBU","FRV"]]></text>
         </inputValues>
       </input>
       <input id="InputClause_0hkwet0" label="Version" camunda:inputVariable="">
@@ -47,10 +47,10 @@
       <output id="output_1" label="Dokument Typ" name="dokumentTyp" typeRef="string" />
       <rule id="table-267780920-1">
         <inputEntry id="UnaryTests_02o9rds">
-          <text><![CDATA["SBU]]></text>
+          <text><![CDATA["SBU"]]></text>
         </inputEntry>
         <inputEntry id="UnaryTests_1o1hcak">
-          <text><![CDATA[> 19]]></text>
+          <text><![CDATA[< 20]]></text>
         </inputEntry>
         <inputEntry id="UnaryTests_0g0ktc9">
           <text><![CDATA["AAA"]]></text>
@@ -64,7 +64,7 @@
           <text><![CDATA["SBU"]]></text>
         </inputEntry>
         <inputEntry id="UnaryTests_0t2fprl">
-          <text>20</text>
+          <text><![CDATA[>= 20]]></text>
         </inputEntry>
         <inputEntry id="UnaryTests_16iqrud">
           <text></text>
@@ -153,9 +153,16 @@
         <biodi:waypoints x="606" y="213" />
         <biodi:waypoints x="558" y="151" />
       </biodi:edge>
+      <biodi:edge source="beitragTypDecision">
+        <biodi:waypoints x="316" y="92" />
+        <biodi:waypoints x="437" y="107" />
+      </biodi:edge>
     </extensionElements>
     <informationRequirement>
       <requiredInput href="#InputData_1qipttl" />
+    </informationRequirement>
+    <informationRequirement>
+      <requiredDecision href="#beitragTypDecision" />
     </informationRequirement>
     <decisionTable id="DecisionTable_1t5noek">
       <input id="InputClause_13x65wj" label="Beitrag" camunda:inputVariable="">
@@ -172,11 +179,27 @@
           <text><![CDATA["A"]]></text>
         </outputEntry>
       </rule>
+      <rule id="table-267780920-2">
+        <inputEntry id="UnaryTests_1o1bk24">
+          <text>[101..102]</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_11bz4g8">
+          <text><![CDATA["AAA"]]></text>
+        </outputEntry>
+      </rule>
       <rule id="row-58279269-2">
         <inputEntry id="UnaryTests_1vbr18h">
-          <text>]100..500[</text>
+          <text>]100..101[</text>
         </inputEntry>
         <outputEntry id="LiteralExpression_0cv0nas">
+          <text><![CDATA["AA"]]></text>
+        </outputEntry>
+      </rule>
+      <rule id="table-267780920-3">
+        <inputEntry id="UnaryTests_1s9elpj">
+          <text>[103..500[</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1n2xtdi">
           <text><![CDATA["AA"]]></text>
         </outputEntry>
       </rule>
@@ -215,6 +238,39 @@
   <inputData id="InputData_1qipttl" name="Beitrag">
     <extensionElements>
       <biodi:bounds x="561" y="213" width="125" height="45" />
+    </extensionElements>
+  </inputData>
+  <decision id="beitragTypDecision" name="Beitragstypen">
+    <extensionElements>
+      <biodi:bounds x="136" y="41" width="180" height="80" />
+      <biodi:edge source="InputData_1runqbr">
+        <biodi:waypoints x="175" y="180" />
+        <biodi:waypoints x="205" y="121" />
+      </biodi:edge>
+    </extensionElements>
+    <informationRequirement>
+      <requiredInput href="#InputData_1runqbr" />
+    </informationRequirement>
+    <decisionTable id="DecisionTable_0ot1lmp">
+      <input id="InputClause_1o8kd1k" label="Jahresbeitrag" camunda:inputVariable="">
+        <inputExpression id="LiteralExpression_1vjoku0" typeRef="double">
+          <text>jahresbeitrag</text>
+        </inputExpression>
+      </input>
+      <output id="OutputClause_07k82lo" label="Beitrag" name="beitrag" typeRef="string" />
+      <rule id="row-58279269-4">
+        <inputEntry id="UnaryTests_0sa3c8o">
+          <text><![CDATA[> 0]]></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0qwwzny">
+          <text>jahresbeitrag / 12</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <inputData id="InputData_1runqbr" name="Jahresbeitrag">
+    <extensionElements>
+      <biodi:bounds x="100" y="180" width="125" height="45" />
     </extensionElements>
   </inputData>
 </definitions>

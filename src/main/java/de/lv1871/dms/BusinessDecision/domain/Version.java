@@ -1,7 +1,7 @@
 package de.lv1871.dms.BusinessDecision.domain;
 
 public enum Version {
-	_18(18), _16(16), _20(20);
+	_18(18), _16(16), _20(20), _21(21);
 
 	private final Integer version;
 

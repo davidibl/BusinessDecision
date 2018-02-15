@@ -22,8 +22,10 @@ public class DokumentDecisionResource {
 	@ApiResponses(value = { @ApiResponse(code = 500, message = "Internal Server Error"),
 			@ApiResponse(code = 406, message = "Data Not Acceptable"),
 			@ApiResponse(code = 403, message = "Not Authorized") })
-	public String getDokumente(@RequestParam("tarif") String tarif, @RequestParam("version") Version version) {
-		return decisionService.getDokumenteByVersion(tarif, version);
+	public String getDokumente(@RequestParam("tarif") String tarif, @RequestParam("version") Version version,
+			@RequestParam(value = "beitrag", required = false) Double beitrag,
+			@RequestParam(value = "jahresbeitrag", required = false) Double jahresbeitrag) {
+		return decisionService.getDokumenteByVersion(tarif, version, beitrag, jahresbeitrag);
 	}
 
 }
