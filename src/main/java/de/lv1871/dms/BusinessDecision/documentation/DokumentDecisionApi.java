@@ -32,6 +32,6 @@ public class DokumentDecisionApi {
 	}
 
 	private static Predicate<String> dokumentDecisionPath() {
-		return regex("/api/dokumente.*");
+		return regex("/api/.*");
 	}
 }
