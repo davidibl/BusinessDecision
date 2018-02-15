@@ -3,7 +3,28 @@
   <decision id="dokumentDecision" name="Dokument Matrix">
     <extensionElements>
       <biodi:bounds x="270" y="311" width="180" height="80" />
+      <biodi:edge source="beitragKlasseDecision">
+        <biodi:waypoints x="499" y="151" />
+        <biodi:waypoints x="387" y="311" />
+      </biodi:edge>
+      <biodi:edge source="InputData_1dgbl64">
+        <biodi:waypoints x="287" y="458" />
+        <biodi:waypoints x="333" y="391" />
+      </biodi:edge>
+      <biodi:edge source="InputData_0nv39y4">
+        <biodi:waypoints x="436" y="495" />
+        <biodi:waypoints x="381" y="391" />
+      </biodi:edge>
     </extensionElements>
+    <informationRequirement>
+      <requiredDecision href="#beitragKlasseDecision" />
+    </informationRequirement>
+    <informationRequirement>
+      <requiredInput href="#InputData_1dgbl64" />
+    </informationRequirement>
+    <informationRequirement>
+      <requiredInput href="#InputData_0nv39y4" />
+    </informationRequirement>
     <decisionTable hitPolicy="FIRST">
       <input id="InputClause_1k4hexe" label="Tarif" camunda:inputVariable="">
         <inputExpression id="LiteralExpression_0dostv2" typeRef="string">
@@ -18,28 +39,24 @@
           <text>version</text>
         </inputExpression>
       </input>
+      <input id="InputClause_0c2dovc" label="Klasse" camunda:inputVariable="">
+        <inputExpression id="LiteralExpression_052liak" typeRef="string">
+          <text>klasse</text>
+        </inputExpression>
+      </input>
       <output id="output_1" label="Dokument Typ" name="dokumentTyp" typeRef="string" />
-      <rule id="row-270313570-1">
-        <description></description>
-        <inputEntry id="UnaryTests_0nb9daf">
-          <text><![CDATA["FRV"]]></text>
+      <rule id="table-267780920-1">
+        <inputEntry id="UnaryTests_02o9rds">
+          <text><![CDATA["SBU]]></text>
         </inputEntry>
-        <inputEntry id="UnaryTests_11oft5f">
-          <text>18</text>
+        <inputEntry id="UnaryTests_1o1hcak">
+          <text><![CDATA[> 19]]></text>
         </inputEntry>
-        <outputEntry id="LiteralExpression_1xmhi7g">
-          <text><![CDATA["FRV_A"]]></text>
-        </outputEntry>
-      </rule>
-      <rule id="row-270313570-2">
-        <inputEntry id="UnaryTests_0yjwdpy">
-          <text><![CDATA["SBU"]]></text>
+        <inputEntry id="UnaryTests_0g0ktc9">
+          <text><![CDATA["AAA"]]></text>
         </inputEntry>
-        <inputEntry id="UnaryTests_0qpcuri">
-          <text></text>
-        </inputEntry>
-        <outputEntry id="LiteralExpression_0f1j0mx">
-          <text><![CDATA["SBU_STD"]]></text>
+        <outputEntry id="LiteralExpression_12ccvks">
+          <text><![CDATA["SBU Premium"]]></text>
         </outputEntry>
       </rule>
       <rule id="row-270313570-3">
@@ -49,8 +66,26 @@
         <inputEntry id="UnaryTests_0t2fprl">
           <text>20</text>
         </inputEntry>
+        <inputEntry id="UnaryTests_16iqrud">
+          <text></text>
+        </inputEntry>
         <outputEntry id="LiteralExpression_1708795">
           <text><![CDATA["SBU_NEW"]]></text>
+        </outputEntry>
+      </rule>
+      <rule id="row-270313570-1">
+        <description></description>
+        <inputEntry id="UnaryTests_0nb9daf">
+          <text><![CDATA["FRV"]]></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_11oft5f">
+          <text>18</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0vcuauu">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1xmhi7g">
+          <text><![CDATA["FRV_A"]]></text>
         </outputEntry>
       </rule>
       <rule id="row-270313570-6">
@@ -59,6 +94,9 @@
         </inputEntry>
         <inputEntry id="UnaryTests_0kl787z">
           <text>16</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_09dw631">
+          <text></text>
         </inputEntry>
         <outputEntry id="LiteralExpression_1b436l1">
           <text><![CDATA["FRV_OLD"]]></text>
@@ -71,8 +109,25 @@
         <inputEntry id="UnaryTests_1b4fvj7">
           <text></text>
         </inputEntry>
+        <inputEntry id="UnaryTests_16xefzk">
+          <text></text>
+        </inputEntry>
         <outputEntry id="LiteralExpression_15jw3ng">
           <text><![CDATA["FRV"]]></text>
+        </outputEntry>
+      </rule>
+      <rule id="row-270313570-2">
+        <inputEntry id="UnaryTests_0yjwdpy">
+          <text><![CDATA["SBU"]]></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0qpcuri">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1dhnhzf">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0f1j0mx">
+          <text><![CDATA["SBU_STD"]]></text>
         </outputEntry>
       </rule>
       <rule id="row-205065607-1">
@@ -82,10 +137,84 @@
         <inputEntry id="UnaryTests_0hvn3dl">
           <text></text>
         </inputEntry>
+        <inputEntry id="UnaryTests_0yvpve5">
+          <text></text>
+        </inputEntry>
         <outputEntry id="LiteralExpression_1twhfc2">
           <text><![CDATA["STD"]]></text>
         </outputEntry>
       </rule>
     </decisionTable>
   </decision>
+  <decision id="beitragKlasseDecision" name="Beitragsklassen">
+    <extensionElements>
+      <biodi:bounds x="437" y="71" width="180" height="80" />
+      <biodi:edge source="InputData_1qipttl">
+        <biodi:waypoints x="606" y="213" />
+        <biodi:waypoints x="558" y="151" />
+      </biodi:edge>
+    </extensionElements>
+    <informationRequirement>
+      <requiredInput href="#InputData_1qipttl" />
+    </informationRequirement>
+    <decisionTable id="DecisionTable_1t5noek">
+      <input id="InputClause_13x65wj" label="Beitrag" camunda:inputVariable="">
+        <inputExpression id="LiteralExpression_0rohy3o" typeRef="double">
+          <text>beitrag</text>
+        </inputExpression>
+      </input>
+      <output id="OutputClause_1o0and8" label="Klasse" name="klasse" typeRef="string" />
+      <rule id="row-58279269-1">
+        <inputEntry id="UnaryTests_0jlz3hg">
+          <text>[0..100]</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0k2gkcn">
+          <text><![CDATA["A"]]></text>
+        </outputEntry>
+      </rule>
+      <rule id="row-58279269-2">
+        <inputEntry id="UnaryTests_1vbr18h">
+          <text>]100..500[</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0cv0nas">
+          <text><![CDATA["AA"]]></text>
+        </outputEntry>
+      </rule>
+      <rule id="row-58279269-3">
+        <inputEntry id="UnaryTests_0co4g0n">
+          <text><![CDATA[> 500]]></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_04bv92d">
+          <text><![CDATA["AAA"]]></text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <knowledgeSource id="KnowledgeSource_1hxm2um" name="Dokumentation&#10;Dokument-matrix">
+    <extensionElements>
+      <biodi:bounds x="555" y="318" width="100" height="63" />
+      <biodi:edge source="dokumentDecision">
+        <biodi:waypoints x="450" y="351" />
+        <biodi:waypoints x="555" y="350" />
+      </biodi:edge>
+    </extensionElements>
+    <authorityRequirement>
+      <requiredDecision href="#dokumentDecision" />
+    </authorityRequirement>
+  </knowledgeSource>
+  <inputData id="InputData_1dgbl64" name="Version">
+    <extensionElements>
+      <biodi:bounds x="208" y="458" width="125" height="45" />
+    </extensionElements>
+  </inputData>
+  <inputData id="InputData_0nv39y4" name="Tarif">
+    <extensionElements>
+      <biodi:bounds x="385" y="495" width="125" height="45" />
+    </extensionElements>
+  </inputData>
+  <inputData id="InputData_1qipttl" name="Beitrag">
+    <extensionElements>
+      <biodi:bounds x="561" y="213" width="125" height="45" />
+    </extensionElements>
+  </inputData>
 </definitions>
