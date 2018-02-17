@@ -197,7 +197,7 @@
       </rule>
       <rule id="table-267780920-3">
         <inputEntry id="UnaryTests_1s9elpj">
-          <text>[103..500[</text>
+          <text>]102..500]</text>
         </inputEntry>
         <outputEntry id="LiteralExpression_1n2xtdi">
           <text><![CDATA["AA"]]></text>
