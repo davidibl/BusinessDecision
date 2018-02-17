@@ -179,20 +179,20 @@
           <text><![CDATA["A"]]></text>
         </outputEntry>
       </rule>
-      <rule id="table-267780920-2">
-        <inputEntry id="UnaryTests_1o1bk24">
-          <text>[101..102]</text>
-        </inputEntry>
-        <outputEntry id="LiteralExpression_11bz4g8">
-          <text><![CDATA["AAA"]]></text>
-        </outputEntry>
-      </rule>
       <rule id="row-58279269-2">
         <inputEntry id="UnaryTests_1vbr18h">
           <text>]100..101[</text>
         </inputEntry>
         <outputEntry id="LiteralExpression_0cv0nas">
           <text><![CDATA["AA"]]></text>
+        </outputEntry>
+      </rule>
+      <rule id="table-267780920-2">
+        <inputEntry id="UnaryTests_1o1bk24">
+          <text>[101..102]</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_11bz4g8">
+          <text><![CDATA["AAA"]]></text>
         </outputEntry>
       </rule>
       <rule id="table-267780920-3">
